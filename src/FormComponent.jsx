@@ -7,7 +7,19 @@ const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 export class FormComponent extends Component {
 
     state = {
-        date: new Date()
+        date: new Date(),
+        hours: 0,
+        workedHours: 0,
+        netSalary: 0,
+        grossSalary: 0
+    };
+
+    static calculateNetSalary = (salary, workedHours, hours) => {
+        return salary * hours / workedHours;
+    };
+
+    static calculateGrossSalary = quota => {
+
     };
 
     getNumberOfDaysInMonth = month => {
@@ -32,11 +44,11 @@ export class FormComponent extends Component {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Liczba godzin przepracowanych:</label>
-                    <input type='text' className="form-input" name="workedHours" placeholder="" />
+                    <input type='text' className="form-input" name="workedHours" placeholder="" value={this.state.workedHours} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Ile zarabiasz miesięcznie netto?:</label>
-                    <input type='text' className="form-input" name="netSalary" placeholder="" />
+                    <input type='text' className="form-input" name="netSalary" placeholder="" value={this.state.netSalary} />
                 </div>
                 <div className="form-group">
                     <select className="form-select" name="vatPercentage">
@@ -47,11 +59,12 @@ export class FormComponent extends Component {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Ile zarobiłeś w tym miesiącu netto?:</label>
-                    <input type='text' className="form-input" name="netQuota" placeholder="" />
+                    {FormComponent.calculateNetSalary()}
                 </div>
                 <div className="form-group">
                     <label className="form-label">Ile zarobiłeś w tym miesiącu brutto?:</label>
-                    <input type='text' className="form-input" name="grossQuota" placeholder="" />
+                    {FormComponent.calculateGrossSalary()}
+                    {this.state.grossSalary}
                 </div>
             </div>
         )
