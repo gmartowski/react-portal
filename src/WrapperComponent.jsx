@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './wrapper.css';
 import { ModalComponent } from './ModalComponent';
-import { PortalComponent } from './PortalComponent';
+import { PortalComponent } from './Portal/PortalComponent';
 import { FormComponent } from './FormComponent';
 
 export class WrapperComponent extends React.Component {
