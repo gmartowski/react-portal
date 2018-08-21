@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './wrapper.css';
 import { ModalComponent } from './ModalComponent';
 import { PortalComponent } from './PortalComponent';
+import { FormComponent } from './FormComponent';
 
 export class WrapperComponent extends React.Component {
 
@@ -22,18 +23,13 @@ export class WrapperComponent extends React.Component {
     render() {
         return (
             <div className="wrapper-component">
-                <span>Wrapper component, {this.props.children}</span>
-                <span>{this.props.id}</span>
-                <span>{this.props.name}</span>
-                <button className="btn" onClick={this.onModalClick}>Wyświetl modala</button>
-
+                <FormComponent></FormComponent>
                 <PortalComponent>
                     <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
-                        <div>
-                            To jest treść modala który się wyświetli
-                        </div>
+                        <div>To jest treść modala który się wyświetli</div>
                     </ModalComponent>
                 </PortalComponent>
+                <button className="btn" onClick={this.onModalClick}>Wyświetl modala</button>
             </div>
         );
     }
