@@ -1,34 +1,29 @@
-import React, { Component, Fragment } from 'react';
-import { WrapperComponent } from './WrapperComponent';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 import 'spectre.css';
+import './wrapper.css';
+import { ModalComponent } from './Modal/ModalComponent';
+import { PortalComponent } from './Portal/PortalComponent';
 
 export class App extends Component {
 
     state = {
-        id: 0,
-        name: 'Grzegorz Martowski'
+        showModal: false
+    };
+
+    onModalClick = () => {
+        this.setState({ showModal: !this.state.showModal })
     };
 
     render() {
-        const { id, name } = this.state;
         return (
-            <Fragment>
-                <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h1 className="App-title">Welcome to React</h1>
-                    </header>
-                    <p className="App-intro">
-                        To get started, edit <code>src/App.js</code> and save to reload.
-                    </p>
-                </div>
-                <WrapperComponent id={id} name={name}>
-                    <h1>Title children</h1>
-                    <div>Children component</div>
-                </WrapperComponent>
-            </Fragment>
+            <div>
+                <PortalComponent>
+                    <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
+                        <div>To jest treść modala który się wyświetli</div>
+                    </ModalComponent>
+                </PortalComponent>
+                <button className="btn" onClick={this.onModalClick}>Wyświetl modala</button>
+            </div>
         );
     }
 }
