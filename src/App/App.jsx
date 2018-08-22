@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'spectre.css';
+import './app.less';
 import { ModalComponent } from '../Modal/ModalComponent';
 import { PortalComponent } from '../Portal/PortalComponent';
 
@@ -18,10 +19,11 @@ export class App extends Component {
             <div>
                 <PortalComponent>
                     <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
-                        <div>To jest treść modala który się wyświetli</div>
+                        <h1>Tytuł modala</h1>
+                        <div>To jest treść modala który się wyświetli przekazana jako children</div>
                     </ModalComponent>
                 </PortalComponent>
-                <button className="btn" onClick={this.onModalClick}>Wyświetl modala</button>
+                <button className="btn" onClick={this.onModalClick}>Wyświetl modal</button>
             </div>
         );
     }
