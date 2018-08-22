@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'spectre.css';
-import './wrapper.less';
-import { ModalComponent } from './Modal/ModalComponent';
-import { PortalComponent } from './Portal/PortalComponent';
+import { ModalComponent } from '../Modal/ModalComponent';
+import { PortalComponent } from '../Portal/PortalComponent';
 
 export class App extends Component {
 
@@ -11,7 +10,7 @@ export class App extends Component {
     };
 
     onModalClick = () => {
-        this.setState({ showModal: !this.state.showModal })
+        this.setState({ showModal: !this.state.showModal });
     };
 
     render() {

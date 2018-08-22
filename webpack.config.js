@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CleanCSSPlugin = require('less-plugin-clean-css');
 
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -11,10 +10,10 @@ module.exports = {
     entry: SRC_DIR + '/index.js',
     output: {
         filename: 'bundle.js',
-        path: DIST_DIR,
+        path: DIST_DIR
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: DIST_DIR,
         port: 3000,
         hot: true
     },
@@ -41,22 +40,23 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: "style-loader"
+                        loader: "style-loader",
+                        options: {
+                            sourceMap: true
+                        }
                     },
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: true,
-                            modules: true,
-                            localIdentName: "[local]___[hash:base64:5]"
+                            sourceMap: true
                         }
                     },
                     {
                         loader: "less-loader",
                         options: {
-                            plugins: [
-                                new CleanCSSPlugin({ advanced: true })
-                            ]
+                            cacheDirectory: true,
+                            strictMath: true,
+                            sourceMap: true
                         }
                     }
 
