@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'spectre.css';
-import './wrapper.css';
+import './wrapper.less';
 import { ModalComponent } from './Modal/ModalComponent';
 import { PortalComponent } from './Portal/PortalComponent';
 

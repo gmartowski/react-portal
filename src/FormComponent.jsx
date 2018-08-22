@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
-import './form.css';
+import './form.less';
 
 const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
