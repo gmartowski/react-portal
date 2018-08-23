@@ -8,9 +8,9 @@ w miejsce bardzo odległe od komponentu - rodzica, będące poza jego hierarchi�
 
 Bardzo dobrym przykładem wykorzystania tej funkcjonalności są komponenty typu: modal, tooltip czy popover. 
 Z reguły elementy htmlowe tych konstrukcji są umieszczane na końcu strony w okolicach taga </body>, tak jak to było np. 
-w dobrze znanej wtyczce colorbox.
+w dobrze znanej wtyczce colorbox. Pozwala to uniknąć problemu, gdy element-rodzic w drzewie DOM ma np. atrybut overflow: hidden.
 
-Jak to można rozwiązać w ReactJS ? 
+Jak to można rozwiązać w ReactJS ?
 Zakładając, że główny komponent renderowany jest w kontenerze o id='root', dodajmy linię niżej kontener, w którym bedziemy chcieli
 wyświetlić nasz modal:
      
@@ -22,6 +22,8 @@ wyświetlić nasz modal:
 
 ```
 Teraz stworzymy komponent o nazwie Portal, w którym zaimplementujemy jego działanie.
+Będzie,on jakby 'pośrednikiem' pomiędzy komponentem reactowym, a elementem w drzewie DOM gdzie  wyświetli się modal.
+
 Potrzebujemy zaimportować pakiety ReactDOM, gdzie znajduje się funckjonalnośc tworzenia portali, oraz Component, aby stworzyć
 reużywalny komponent typu Portal.
 ```javascript
@@ -58,10 +60,10 @@ w którym "otworzy się portal":
 ```javascript
     render() {
         const { children } = this.props; // skorzystamy z destrukturyzacji ES6
-        return ReactDOM.createPortal(children, this.element); // tworzymy portal
+        return ReactDOM.createPortal(children, this.element); // tworzymy portal i wrzucamy childrena
     } 
 ```
-Komponent modala przekażemy do komponentu Portal poprzez propa children, w komponencie-rodzicu będzie to wyglądać tak:
+Komponent modala przekażemy do komponentu Portal poprzez propa children, w komponencie About będzie to wyglądać tak:
 ```javascript
     <PortalComponent>
         <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
