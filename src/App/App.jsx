@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'spectre.css';
 import './app.less';
-import { ModalComponent } from '../Modal/ModalComponent';
-import { PortalComponent } from '../Portal/PortalComponent';
+import { Home } from './Home/Home';
+import { Contact } from './Contact/Contact';
+import { About } from './About/About';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 export class App extends Component {
 
-    state = {
-        showModal: false
-    };
+    constructor(){
+        super();
+        console.log('constructor');
+    }
 
-    onModalClick = () => {
-        this.setState({ showModal: !this.state.showModal });
-    };
+    componentWillMount(){
+        console.log('component will mount');
+    }
+
+    componentDidMount(){
+        console.log('component did mount');
+    }
+
+    componentWillUnmount(){
+        console.log('component will unmount');
+    }
 
     render() {
+        console.log('render');
         return (
-            <div>
-                <PortalComponent>
-                    <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
-                        <h1>Tytuł modala</h1>
-                        <div>To jest treść modala który się wyświetli przekazana jako children</div>
-                    </ModalComponent>
-                </PortalComponent>
-                <button className="btn" onClick={this.onModalClick}>Wyświetl modal</button>
-            </div>
+            <Router>
+                <div className="app">
+                    <Sidebar />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/about/:id" component={About} />
+                    <Route path="/contact" component={Contact} />
+                </div>
+            </Router>
         );
     }
 }
