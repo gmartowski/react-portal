@@ -1,14 +1,22 @@
+@color-1: #5EC289;
+@color-2: #6B9B7D;
+@color-3: #EFFDF3;
+@color-4: #D9EDDF;
+
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 300px;
-    background-color: #5EC289;
+    max-width: 300px;
+    width: 100%;
+    background-color: @color-4;
+    color: @color-3;
+    height: 100%;
 
     &__list {
         list-style: none;
     }
 
     &__item {
-        color: white;
+        a {
+            color: @color-2;
+        }
     }
 }
