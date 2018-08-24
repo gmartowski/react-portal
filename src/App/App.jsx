@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Loadable } from 'react-loadable';
+import { Home } from './Home/Home';
+import { About } from './About/About';
+import { Contact } from './Contact/Contact';
 import 'spectre.css';
 import './app.less';
-import { Home } from './Home/Home';
-import { Contact } from './Contact/Contact';
-import { About } from './About/About';
 import { Sidebar } from '../Sidebar/Sidebar';
 
 export class App extends Component {
@@ -33,9 +34,11 @@ export class App extends Component {
                 <Router>
                     <div className="app">
                         <Sidebar />
-                        <Route exact path="/" component={Home} />
-                        <Route path="/about/:id" component={About} />
-                        <Route path="/contact" component={Contact} />
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route path="/about/:id" component={About} />
+                            <Route path="/contact" component={Contact} />
+                        </Switch>
                     </div>
                 </Router>
             </Fragment>

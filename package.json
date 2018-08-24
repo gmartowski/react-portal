@@ -41,6 +41,7 @@
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "dependencies": {
+    "react-loadable": "^5.5.0",
     "spectre.css": "^0.5.3"
   }
 }
