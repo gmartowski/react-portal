@@ -19,12 +19,12 @@ export class Home extends Component {
                 <div className="home__content">
                     <Portal>
                         <Modal toggleModal={this.onModalClick} visibility={this.state.showModal}>
-                            <h1>Tytuł modala </h1>
-                            <div>To jest treść modala który się wyświetli przekazana jako children</div>
+                            <h1>Modal title</h1>
+                            <div>It works !</div>
                         </Modal>
                     </Portal>
                     <button className="btn" onClick={this.onModalClick}>
-                        Wyświetl modal
+                        Show modal
                     </button>
                 </div>
             </div>

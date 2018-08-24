@@ -7,13 +7,13 @@ export const Sidebar = () => {
         <aside className="sidebar">
             <ul className="sidebar__list">
                 <li className="sidebar__item">
-                    <NavLink to="/" exact activeStyle={{ color: 'green' }}>Home</NavLink>
+                    <NavLink to="/" strict exact activeStyle={{ color: '#A78D65' }}>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about/123456" exact activeStyle={{ color: 'green' }}>About</NavLink>
+                    <NavLink to="/about/123456" strict exact activeStyle={{ color: '#A78D65' }}>About</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/contact" exact activeStyle={{ color: 'green' }}>Contact</NavLink>
+                    <NavLink to="/contact" strict exact activeStyle={{ color: '#A78D65' }}>Contact</NavLink>
                 </li>
             </ul>
         </aside>

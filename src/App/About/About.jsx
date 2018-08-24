@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './about.less';
 
 export class About extends Component {
 
@@ -27,7 +28,7 @@ export class About extends Component {
         console.log('render about.jsx');
         return (
             <div className="about">
-                <h1>About page</h1>
+                <h1 className="about__title">About page</h1>
                 {this.props.match.params.id}
             </div>
         );
