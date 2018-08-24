@@ -16,7 +16,7 @@ export class Modal extends Component {
             <div className="modal-component">
                 <div className="modal-component__body">
                     {this.props.children}
-                    <button className="btn" onClick={toggleModal}>Zamknij</button>
+                    <button className="btn" onClick={toggleModal}>Close</button>
                 </div>
             </div>
         );
