@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const portalRoot = document.getElementById('portal');
 
-export class PortalComponent extends Component {
+export class Portal extends Component {
 
     constructor() {
         super();

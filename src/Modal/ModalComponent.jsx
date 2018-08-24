@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './modal.less';
 
-export class ModalComponent extends Component {
+export class Modal extends Component {
 
     static propTypes = {
         visibility: PropTypes.bool,
