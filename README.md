@@ -1,5 +1,5 @@
 
-#ReactJS Sandbox
+# ReactJS Sandbox
 
 It's just simple ReactJS + Webpack based application for training purposes, that's why it's called sandbox :)
 
