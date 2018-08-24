@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'spectre.css';
 import './app.less';
-import Header from './Header/Header';
 import { Home } from './Home/Home';
 import { Contact } from './Contact/Contact';
 import { About } from './About/About';
@@ -31,7 +30,6 @@ export class App extends Component {
         console.log('render');
         return (
             <Fragment>
-                <Header />
                 <Router>
                     <div className="app">
                         <Sidebar />
