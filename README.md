@@ -20,10 +20,9 @@ For more information about those features, please visit ReactJS documentation: h
 
 ## Authors
 
-* **Grzegorz Martowski** - *Initial work* - [Stabsoft](https://stabsoft.pl/)
+* **Grzegorz Martowski** - [Stabsoft](https://stabsoft.pl/)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
