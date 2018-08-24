@@ -15,7 +15,7 @@ export class Home extends Component {
     }
 
     onModalClick = () => {
-        this.setState({ showModal: !this.state.showModal });
+        this.setState(prevState => ({ showModal: !prevState.showModal }));
     };
 
     handleClicking() {
@@ -25,18 +25,21 @@ export class Home extends Component {
     }
 
     render() {
+        const { clicks, showModal } = this.state;
         return (
             <div className="home" onClick={this.handleClicking}>
                 <h1 className="home__title">Home page</h1>
-                <strong>Number of clicks: {this.state.clicks}</strong>
+                <strong>Number of clicks: {clicks}</strong>
                 <div className="home__content">
                     <Portal>
-                        <Modal toggleModal={this.onModalClick} visibility={this.state.showModal}>
+                        <Modal toggleModal={this.onModalClick} visibility={showModal}>
                             <h1>Modal title</h1>
                             <div>It works !</div>
                         </Modal>
                     </Portal>
-                    <button className="btn" onClick={this.onModalClick}>Show modal</button>
+                    <button className="btn" onClick={this.onModalClick}>
+                        {showModal ? 'Close modal': 'Show modal'}
+                    </button>
                 </div>
             </div>
         );
