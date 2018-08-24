@@ -50,40 +50,35 @@ export class PortalComponent extends Component {
 
 Gdy komponent zostanie zostanie wyrenderowany, wrzucimy nowo utworzony element, korzystamy zatem z lifecycle-hook componentDidMount:
 ```javascript
-    componentDidMount() {
-        portalRoot.appendChild(this.element);
-    }
+componentDidMount() {
+    portalRoot.appendChild(this.element);
+}
 ```
 
 Zostało nam jedynie zaimplementować funkcję render, gdzie utworzymy portal, dodamy komponent modala, który chcemy wyświetlić i podamy element 
 w którym "otworzy się portal": 
 ```javascript
-    render() {
-        const { children } = this.props; // skorzystamy z destrukturyzacji ES6
-        return ReactDOM.createPortal(children, this.element); // tworzymy portal i wrzucamy childrena
-    } 
+render() {
+    const { children } = this.props; // skorzystamy z destrukturyzacji ES6
+    return ReactDOM.createPortal(children, this.element); // tworzymy portal i wrzucamy childrena
+} 
 ```
 Komponent modala przekażemy do komponentu Portal poprzez propa children, w komponencie About będzie to wyglądać tak:
 ```javascript
-    <PortalComponent>
-        <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
-            <h1>Tytuł modala </h1>
-            <div>To jest treść modala który się wyświetli przekazana jako children</div>
-        </ModalComponent>
-    </PortalComponent>
+<PortalComponent>
+    <ModalComponent toggleModal={this.onModalClick} visibility={this.state.showModal}>
+        <h1>Tytuł modala </h1>
+        <div>To jest treść modala który się wyświetli przekazana jako children</div>
+    </ModalComponent>
+</PortalComponent>
 ```
 Poniżej dodajmy też przycisk z prostym togglowaniem modala:
 ```javascript
 <button className="btn" onClick={this.onModalClick}>
-                    Wyświetl modal
-                </button>
+    Wyświetl modal
+</button>
 ```
 
 Po kliknięciu możemy zobaczyć, że modal faktycznie wyświetla się moza divem 'root', ponadto zachowuje dostęp do zmiennych i funkcji zdefiniowanych
 w ramach komponentu rodzica.
-
-
-
-
-
 
