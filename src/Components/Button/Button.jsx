@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export class Button extends Component {
+
+    onClick = () => {
+        console.log('On click inside Button ');
+    };
+
     render() {
-        const { color, width, content } = this.props;
+        const { content } = this.props;
         return (
             <div>
-                <button style={{ backgroundColor: { color }, width: { width } }}>{content}</button>
+                <button className="btn" onClick={this.onClick}>{content}</button>
             </div>
         );
     }

@@ -19,9 +19,7 @@ export class ToggleRenderProps extends Component {
         const { on } = this.state;
         return (
             <div>
-                {render({
-                    on, toggle: this.toggle
-                })}
+                {render({ on, toggle: this.toggle })}
             </div>
         );
     }

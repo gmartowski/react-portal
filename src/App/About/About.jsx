@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './about.less';
+import { Alert } from '../../Components/Alert/Alert';
+import { Button } from '../../Components/Button/Button';
 
 export class About extends Component {
 
@@ -27,10 +29,14 @@ export class About extends Component {
     render() {
         console.log('render about.jsx');
         return (
-            <div className="about">
-                <h1 className="about__title">About page</h1>
-                {this.props.match.params.id}
-            </div>
+            <Fragment>
+                <div className="about">
+                    <h1 className="about__title">About page</h1>
+                    {this.props.match.params.id}
+                </div>
+
+                <Alert render={({ onClick }) => <a onClick={onClick}>Alert render prop</a>} />
+            </Fragment>
         );
     }
 }
