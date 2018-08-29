@@ -5,7 +5,7 @@ import { About } from './About/About';
 import { Contact } from './Contact/Contact';
 import 'spectre.css';
 import './app.less';
-import { Sidebar } from '../Sidebar/Sidebar';
+import { Sidebar } from '../Components/Sidebar/Sidebar';
 import AppContext from './AppContext';
 
 export class App extends Component {

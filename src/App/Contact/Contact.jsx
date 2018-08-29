@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Clock } from '../../Clock/Clock';
+import { Clock } from '../../Components/Clock/Clock';
 import './contact.less';
-import { List } from '../../List/List';
-import { Form } from '../../Form/Form';
-import { ToggleRenderProps } from '../../Toggle/ToggleRenderProps';
+import { List } from '../../Components/List/List';
+import { Form } from '../../Components/Form/Form';
+import { ToggleRenderProps } from '../../Components/Toggle/ToggleRenderProps';
 
 const numbers = [1, 2, 3, 4, 5];
 
