@@ -7,11 +7,17 @@ import { Contact } from './Contact/Contact';
 import 'spectre.css';
 import './app.less';
 import { Sidebar } from '../Sidebar/Sidebar';
+import AppContext from './AppContext';
 
 export class App extends Component {
 
     constructor() {
         super();
+        this.state = {
+            firstName: 'Grzegorz',
+            lastName: 'Martowski',
+            phoneNumber: 693881676
+        };
         console.log('constructor');
     }
 
@@ -28,19 +34,20 @@ export class App extends Component {
     }
 
     render() {
-        console.log('render');
         return (
             <Fragment>
-                <Router>
-                    <div className="app">
-                        <Sidebar />
-                        <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route path="/about/:id" component={About} />
-                            <Route path="/contact" component={Contact} />
-                        </Switch>
-                    </div>
-                </Router>
+                <AppContext.Provider value={this.state}>
+                    <Router>
+                        <div className="app">
+                            <Sidebar />
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/about/:id" component={About} />
+                                <Route path="/contact" component={Contact} />
+                            </Switch>
+                        </div>
+                    </Router>
+                </AppContext.Provider>
             </Fragment>
         );
     }

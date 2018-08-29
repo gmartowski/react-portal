@@ -4,11 +4,10 @@ import './contact.less';
 import { List } from '../../List/List';
 import { Form } from '../../Form/Form';
 import { ToggleRenderProps } from '../../Toggle/ToggleRenderProps';
-import { ToggleHOC } from '../../Toggle/ToggleHOC';
 
 const numbers = [1, 2, 3, 4, 5];
 
-class Contact extends Component {
+export class Contact extends Component {
     render() {
         return (
 
@@ -16,7 +15,7 @@ class Contact extends Component {
                 <h1 className="contact__title">Contact page</h1>
                 <Clock />
                 <List numbers={numbers} />
-                <Form showTitleOfSection={(firstName, lastName, pesel) =>
+                <Form isValid={10} showTitleOfSection={(firstName, lastName, pesel) =>
                     <div>
                         <div>Name: {firstName}</div>
                         <div>LastName: {lastName}</div>
@@ -36,4 +35,3 @@ class Contact extends Component {
     };
 };
 
-export default ToggleHOC(Contact);

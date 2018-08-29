@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './modal.less';
 
-export class Modal extends Component {
+export const Modal = props => {
 
-    static propTypes = {
-        visibility: PropTypes.bool,
-        toggleModal: PropTypes.func.isRequired
-    };
+    const { toggleModal, visibility } = props;
 
-    render() {
-        const { toggleModal, visibility } = this.props;
-        return (
-            visibility &&
-            <div className="modal-component">
-                <div className="modal-component__body">
-                    {this.props.children}
-                    <button className="btn">Click and do nuffin'</button>
-                    <button className="btn" onClick={toggleModal}>Close</button>
-                </div>
+    return (
+        visibility &&
+        <div className="modal-component">
+            <div className="modal-component__body">
+                <h1>Modal title</h1>
+                <div>It works !</div>
+                <button className="btn">Click and do nuffin'</button>
+                <button className="btn" onClick={toggleModal}>Close</button>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+PropTypes.propTypes = {
+    visibility: PropTypes.bool,
+    toggleModal: PropTypes.func.isRequired
+};

@@ -2,46 +2,52 @@ import React, { Component } from 'react';
 import './home.less';
 import { Portal } from '../../Portal/PortalComponent';
 import { Modal } from '../../Modal/ModalComponent';
+import AppContext from '../AppContext';
 
 export class Home extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            clicks: 0,
-            showModal: false
-        };
-        this.handleClicking = this.handleClicking.bind(this);
-    }
+    state = {
+        clicks: 0,
+        showModal: false
+    };
 
     onModalClick = () => {
         this.setState(prevState => ({ showModal: !prevState.showModal }));
     };
 
-    handleClicking() {
+    handleClicking = () => {
         this.setState(prevState => ({
             clicks: prevState.clicks + 1
         }));
-    }
+    };
 
     render() {
         const { clicks, showModal } = this.state;
         return (
-            <div className="home" onClick={this.handleClicking}>
-                <h1 className="home__title">Home page</h1>
-                <strong>Number of clicks: {clicks}</strong>
-                <div className="home__content">
-                    <Portal>
-                        <Modal toggleModal={this.onModalClick} visibility={showModal}>
-                            <h1>Modal title</h1>
-                            <div>It works !</div>
-                        </Modal>
-                    </Portal>
-                    <button className="btn" onClick={this.onModalClick}>
-                        {showModal ? 'Close modal': 'Show modal'}
-                    </button>
-                </div>
-            </div>
+            <AppContext.Consumer>
+                {
+                    data => (
+                        <div className="home" onClick={this.handleClicking}>
+                            {data.firstName}<br />
+                            {data.lastName}<br />
+                            {data.phoneNumber}<br />
+                            <h1 className="home__title">Home page</h1>
+                            <strong>Number of clicks: {clicks}</strong>
+                            <div className="home__content">
+                                <Portal>
+                                    <Modal
+                                        toggleModal={this.onModalClick}
+                                        visibility={showModal}>
+                                    </Modal>
+                                </Portal>
+                                <button className="btn" onClick={this.onModalClick}>
+                                    {showModal ? 'Close modal' : 'Show modal'}
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+            </AppContext.Consumer>
         );
     }
 }
