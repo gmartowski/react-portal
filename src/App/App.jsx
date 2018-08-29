@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Loadable } from 'react-loadable';
 import { Home } from './Home/Home';
 import { About } from './About/About';
 import { Contact } from './Contact/Contact';
@@ -16,7 +15,8 @@ export class App extends Component {
         this.state = {
             firstName: 'Grzegorz',
             lastName: 'Martowski',
-            phoneNumber: 693881676
+            phoneNumber: 693881676,
+            randomImgAddress: 'https://api.thecatapi.com/v1/images/search?format=src&mime_types=image/gif'
         };
         console.log('constructor');
     }
