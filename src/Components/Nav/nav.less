@@ -3,14 +3,16 @@
 @color-3: #FFF8F0;
 @color-4: #DFE0DF;
 
-.sidebar {
+.nav {
     display: flex;
-    flex-direction: column;
-    flex-basis: 300px;
+    align-items: flex-end;
     background-color: @color-1;
-    height: 100%;
+    margin: 0;
 
     &__list {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
         list-style: none;
     }
 

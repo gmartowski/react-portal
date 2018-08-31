@@ -3,6 +3,7 @@ import './home.less';
 import { Portal } from '../../Components/Portal/PortalComponent';
 import { Modal } from '../../Components/Modal/ModalComponent';
 import AppContext from '../AppContext';
+import { ParticlesHeader } from '../../Components/ParticlesHeader/ParticlesHeader';
 
 export class Home extends Component {
 
@@ -28,6 +29,7 @@ export class Home extends Component {
                 {
                     data => (
                         <div className="home" onClick={this.handleClicking}>
+                            <ParticlesHeader />
                             {data.firstName}<br />
                             {data.lastName}<br />
                             {data.phoneNumber}<br />

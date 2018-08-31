@@ -4,9 +4,9 @@ import './nav.less';
 
 export const Nav = () => {
     return (
-        <aside className="sidebar">
-            <ul className="sidebar__list">
-                <li className="sidebar__item">
+        <nav className="nav">
+            <ul className="nav__list">
+                <li className="nav__item">
                     <NavLink to="/" strict exact activeStyle={{ color: '#A78D65' }}>Home</NavLink>
                 </li>
                 <li>
@@ -16,6 +16,6 @@ export const Nav = () => {
                     <NavLink to="/contact" strict exact activeStyle={{ color: '#A78D65' }}>Contact</NavLink>
                 </li>
             </ul>
-        </aside>
+        </nav>
     );
 };
