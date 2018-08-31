@@ -15,6 +15,11 @@ export class Home extends Component {
         contacts: []
     };
 
+    constructor(props) {
+        super(props);
+        this.newRef = React.createRef();
+    }
+
     async componentDidMount() {
         await fetch('https://randomuser.me/api/?results=50')
             .then(response => response.json())
@@ -106,6 +111,11 @@ export class Home extends Component {
                                         visibility={showModal}>
                                     </Modal>
                                 </Portal>
+
+                                <div>
+                                    <input type='text' ref={this.newRef} />
+                                    <strong>{this.newRef.value}</strong>
+                                </div>
 
                                 <button className="btn" onClick={this.onModalClick}>
                                     {showModal ? 'Close modal' : 'Show modal'}
