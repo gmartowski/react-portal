@@ -1,15 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './home.less';
 import AppContext from '../AppContext';
 import { Portal } from '../../Components/Portal/PortalComponent';
 import { Modal } from '../../Components/Modal/ModalComponent';
+import { buttonWarning } from '../../Components/Button/ButtonWarning';
+import { Button } from '../../Components/Button/Button';
+import { ButtonSuccess } from '../../Components/Button/ButtonSuccess';
 
 export class Home extends Component {
 
     state = {
         clicks: 0,
-        showModal: false
+        showModal: false,
+        contacts: []
     };
+
+    async componentDidMount() {
+        await fetch('https://randomuser.me/api/?results=50')
+            .then(response => response.json())
+            .then(parsedResponse => parsedResponse.results.map(user => (
+                {
+                    name: `${user.name.first} ${user.name.last}`,
+                    email: user.email,
+                    thumbnail: user.picture.thumbnail
+                }
+            )))
+            .then(contacts => this.setState({ contacts }));
+    }
 
     onModalClick = () => {
         this.setState(prevState => ({ showModal: !prevState.showModal }));
@@ -22,7 +39,8 @@ export class Home extends Component {
     };
 
     render() {
-        const { clicks, showModal } = this.state;
+        const { clicks, showModal, contacts } = this.state;
+        const ButtonWarning = buttonWarning(Button);
         return (
             <AppContext.Consumer>
                 {
@@ -60,6 +78,26 @@ export class Home extends Component {
                                         <label>Random kitty image: </label>
                                         <img src={context.randomImgAddress} />
                                     </div>
+
+                                    <div className="home__list-of-users">
+                                        {contacts.map((item) =>
+                                            <Fragment style={{ display: 'flex' }}
+                                                      key={item.index}>
+                                                <div>
+                                                    <label>Name: </label>
+                                                    <strong>{item.name}</strong>
+                                                </div>
+                                                <div>
+                                                    <label>Email: </label>
+                                                    <strong>{item.email}</strong>
+                                                </div>
+                                                <div>
+                                                    <label>Foto: </label>
+                                                    <img src={item.thumbnail} />
+                                                </div>
+                                            </Fragment>
+                                        )}
+                                    </div>
                                 </div>
 
                                 <Portal>
@@ -72,6 +110,16 @@ export class Home extends Component {
                                 <button className="btn" onClick={this.onModalClick}>
                                     {showModal ? 'Close modal' : 'Show modal'}
                                 </button>
+
+                                <ButtonWarning content={'Warning alert'} onClick={() => {
+                                    console.log('Klik on Button');
+                                }} />
+
+                                <ButtonSuccess render={Button} content="Button success" />
+
+                                <ButtonSuccess>
+                                    {({ onClick }) => <Button onClick={onClick} content="Button success" />}
+                                </ButtonSuccess>
                             </div>
                         </div>
                     )
