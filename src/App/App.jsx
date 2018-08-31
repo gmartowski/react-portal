@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'spectre.css';
 import { Home } from './Home/Home';
-import { About } from './About/About';
-import { Contact } from './Contact/Contact';
 import './app.less';
 import { Sidebar } from '../Components/Sidebar/Sidebar';
 import AppContext from './AppContext';
