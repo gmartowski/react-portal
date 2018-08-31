@@ -6,7 +6,7 @@ import { About } from './About/About';
 import { Contact } from './Contact/Contact';
 import 'spectre.css';
 import './app.less';
-import { Sidebar } from '../Sidebar/Sidebar';
+import { Nav } from '../Components/Nav/Nav';
 import AppContext from './AppContext';
 
 export class App extends Component {
@@ -39,7 +39,7 @@ export class App extends Component {
                 <AppContext.Provider value={this.state}>
                     <Router>
                         <div className="app">
-                            <Sidebar />
+                            <Nav />
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <Route path="/about/:id" component={About} />

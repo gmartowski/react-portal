@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './home.less';
-import { Portal } from '../../Portal/PortalComponent';
-import { Modal } from '../../Modal/ModalComponent';
+import { Portal } from '../../Components/Portal/PortalComponent';
+import { Modal } from '../../Components/Modal/ModalComponent';
 import AppContext from '../AppContext';
 
 export class Home extends Component {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './sidebar.less';
+import './nav.less';
 
-export const Sidebar = () => {
+export const Nav = () => {
     return (
         <aside className="sidebar">
             <ul className="sidebar__list">
