@@ -7,6 +7,9 @@ export class App extends Component {
     render() {
         let myArray = [1, 2, 3, 4];
         let result = 0;
+
+        const carBrands = ['Audi', 'Alfa', 'Kia', 'Volvo', 'Seat', 'Honda', 'Saab', 'Nissan'];
+
         const cars = [
             { name: 'Ford', fuel: 'Petrol' },
             { name: 'Volvo', fuel: 'Diesel' },
@@ -24,7 +27,6 @@ export class App extends Component {
             { 'name': 'Fabia', 'fuel': 'Diesel', 'engine': '0.8' },
             { 'name': 'Rapid', 'fuel': 'Diesel', 'engine': '1.2' }
         ];
-
 
         result = cars.filter(function(car) {
             return car.name === 'Ford';
@@ -65,12 +67,11 @@ export class App extends Component {
 
         countdownFrom(10);
 
-
         return (
 
             <div className="app">
                 <h1>functional programming</h1>
-                <h2>Higher Order Functions</h2>
+                <h5>Higher Order Functions</h5>
                 <div>
                     <ul>
                         <li>map()</li>
@@ -80,13 +81,36 @@ export class App extends Component {
                         <li>reduce()</li>
                     </ul>
                 </div>
-                <h2>1. reduce()</h2>
+                <h5>map()</h5>
+                <pre>It's method creates a new array with the results of calling a provided function on every element in the calling array.</pre>
+                <hr />
                 <div>
                     {
-                        result = myArray.reduce((acc, val) => {
+                        result = cars.map((item, index, array) => {
+                                return `${item.name} is a ${item.fuel} with index: ${index}`;
+                            }
+                        )
+                    }
+                </div>
+                <h5>filter()</h5>
+                <hr />
+                <pre>It's method creates a new array with all elements that pass the test implemented by the provided function.</pre>
+                <div>
+                    {
+
+                        result = carBrands.filter((car) => car === 'Volvo' || car === 'Saab')
+                    }
+                </div>
+                <h5>reduce()</h5>
+
+                <div>
+                    {
+                        result = myArray.reduce((acc, val, index) => {
                             console.log(`Accumulator: ${acc}`);
                             <br />;
                             console.log(`Current value: ${val}`);
+                            <br />;
+                            console.log(`Current index: ${index}`);
                             <br />;
                             return acc * val;
                         }, 1)
@@ -94,37 +118,10 @@ export class App extends Component {
                     }
                     {console.log(result)}
                 </div>
-                <h2>2. map()</h2>
-                <div>
-                    {
-                        result = cars.map((item, index) => {
-                                return `${item.name} is a ${item.fuel}`;
-                            }
-                        )
-                    }
-                </div>
-                <h2>3. filter()</h2>
-                <div>
-                    {
-                        // result = cars.filter(function(car) {
-                        //     return car.name === 'Ford';
-                        // })
-                    }
-                </div>
-                <h2>4. Closures</h2>
-                <div>
-
-                </div>
-
-                <h2>5. Currying</h2>
-                <div>
-
-                </div>
-                <h2>6. Recursion</h2>
-                <div>
-                    When the function call itself until it doesnts
-
-                </div>
+                <h5>Closures</h5>
+                <h5>Currying</h5>
+                <h5>Recursion</h5>
+                <pre>When the function call itself until it doesnts</pre>
             </div>
         )
             ;
