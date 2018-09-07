@@ -7,26 +7,13 @@ export class App extends Component {
     componentDidMount() {
 
         document.querySelector('.bubble').addEventListener('click', function(e) {
-            e.target.classList.toggle('redtext');
-            console.log('bubble');
-        });
+            console.log('Parent clicked');
+        }, true);
 
         document.getElementById('bubble1').addEventListener('click', function(event) {
-            event.target.classList.toggle('redtext');
-            console.log('bubble1');
-        });
-        document.getElementById('bubble2').addEventListener('click', function(event) {
-            event.target.classList.toggle('redtext');
-            console.log('bubble2');
-        });
-        document.getElementById('bubble3').addEventListener('click', function(event) {
-            event.target.classList.toggle('redtext');
-            console.log('bubble3');
-        });
-        document.getElementById('bubble4').addEventListener('click', function(event) {
-            event.target.classList.toggle('redtext');
-            console.log('bubble4');
-        });
+            console.log('Child clicked');
+        }, true);
+
     }
 
     render() {
