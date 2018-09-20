@@ -22,14 +22,8 @@ export class App extends Component {
         var bound = addToThis.bind(obj);
         // console.log(bound);
 
-
-
-
         // LEXICAL SCOPE  - is the scope defined at lexing time.
         // function scope of outer function === lexical scope of inner function.
-
-
-
 
         // Closure -  a function which is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
 
@@ -47,9 +41,6 @@ export class App extends Component {
             //console.log(i);
         }
         //console.log(i);
-
-
-
 
         // LEXICAL THIS - Lexical “this” a feature that forces the variable “this” to always point to the object where it is physically located within.
         function getNameFromObject(id, callback) {
@@ -84,9 +75,6 @@ export class App extends Component {
         };
         person.showPerson();
 
-
-
-
         // STRICT MODE - helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript.
         // 1. uniemożliwia stosowanie przestarzałych składni języka – rzuca w przypadku ich stosowania błędami,
         // 2. pomyłki traktuje jako błędy, byś mógł je możliwie szybko wykrywać i naprawiać,
@@ -101,16 +89,23 @@ export class App extends Component {
         // - Zabronione jest nadpisywanie eval oraz arguments
         // - Dodano nowe słowa zarezerwowane - implements, interface, let, package, private, protected, public, static i yield.
 
-
-
         // SYMBOL
         let symbol1 = Symbol();
         let symbol2 = Symbol('symbol');
-        console.log(symbol1, symbol2);
-
-
+        // console.log(symbol1, symbol2);
 
         // AJAX - Asynchronious Javascript and XML
+
+        // SLICE && SPLICE
+        // 1. slice - wycina kawałek tablicy od do i go zwraca (nie modyfikując wejściowej tablicy)
+        // 2. splice - wstawia elementy w istniejącą tablicę modyfikując ją i zwraca wstawiane elementy w postaci tablicy
+
+        let arr1 = [1, 2, 3, 4, 5, 6, 7];
+        // console.log(arr1.slice(0, 2));
+        // console.log(arr1);
+
+        // console.log(arr1.splice(0, 2, 12, 14));
+        // console.log(arr1);
     }
 
     render() {
