@@ -25,18 +25,19 @@ export class App extends Component {
         // LEXICAL SCOPE  - is the scope defined at lexing time.
         // function scope of outer function === lexical scope of inner function.
 
-        // Closure -  a function which is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
+        // Closure -  when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
 
-        function foo() {  // 'scope of foo' aka lexical scope for bar
-            var memory = 'hello closure';
-            return function bar() {
-                //console.log(memory);
-            };
+        function parent() {
+            var name = "Parent";
+            function child() {
+                console.log(name);
+            }
+            return child;
         }
-
-        const closure = foo();
-
+        var closure = parent();
         closure();
+
+
         for (var i = 0; i < 3; i++) {
             //console.log(i);
         }
